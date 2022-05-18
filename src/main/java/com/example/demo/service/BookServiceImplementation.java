@@ -24,9 +24,22 @@ public class BookServiceImplementation implements BookService{
         return books;
     }
 
+
     @Override
     public Book save(Book book){
         bookRepository.save(book);
         return book;
+    }
+    @Override
+    public boolean  delete(String id){
+        try {
+            bookRepository.deleteById(id);
+            return true;
+        }
+        catch (Exception e){
+            return  false;
+        }
+
+
     }
 }

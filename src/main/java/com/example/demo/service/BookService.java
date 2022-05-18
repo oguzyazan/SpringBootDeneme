@@ -7,4 +7,5 @@ import java.util.List;
 public interface BookService {
     List<Book> getAll();
     Book save(Book book);
+    boolean delete(String id);
 }
