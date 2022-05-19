@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Book;
+import com.example.demo.model.VWBook;
 import com.example.demo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.Query;
@@ -21,7 +22,7 @@ BookController {
     }
 
     @GetMapping(value="/getAll")
-    public List<Book> getAllVote(){
+    public List<Book> getAllBooks(){
         return bookService.getAll();
     }
 
@@ -32,5 +33,10 @@ BookController {
     @DeleteMapping(value = "/delete")
     public boolean  delete(@RequestParam String id){
          return bookService.delete(id);
+    }
+
+    @GetMapping(value="/getAllVWBooks")
+    public List<VWBook> getAllVWBooks(){
+        return bookService.getAllVWBooks();
     }
 }
