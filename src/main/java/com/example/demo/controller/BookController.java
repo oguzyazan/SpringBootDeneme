@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Book;
-import com.example.demo.model.VWBook;
 import com.example.demo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.Query;
@@ -36,7 +35,7 @@ BookController {
     }
 
     @GetMapping(value="/getAllVWBooks")
-    public List<VWBook> getAllVWBooks(){
+    public List<Book> getAllVWBooks(){
         return bookService.getAllVWBooks();
     }
 }

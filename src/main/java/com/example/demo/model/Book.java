@@ -2,7 +2,6 @@ package com.example.demo.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 @Document
 public class Book {
     @Id
@@ -10,15 +9,12 @@ public class Book {
     private String name;
 
     private String typeId;
-
-    public Book(){
-
-    }
-
-    public Book(String id, String name, String typeId) {
+    private String[] typeName;
+    public Book(String id, String name, String typeId,String[] typeName) {
         this.id = id;
         this.name = name;
         this.typeId = typeId;
+        this.typeName = typeName;
     }
 
     public String getId() {
@@ -43,6 +39,14 @@ public class Book {
 
     public void setTypeId(String typeId) {
         this.typeId = typeId;
+    }
+
+    public String[] getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String[] typeName) {
+        this.typeName = typeName;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Book;
-import com.example.demo.model.VWBook;
 import com.example.demo.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +24,12 @@ public class BookServiceImplementation implements BookService{
         return books;
     }
 
-
+    @Override
+    public List<Book> getAllVWBooks(){
+        List<Book> books = new ArrayList<>();
+        bookRepository.getVWBooks().forEach(books::add);
+        return books;
+    }
     @Override
     public Book save(Book book){
         bookRepository.save(book);
@@ -44,10 +48,4 @@ public class BookServiceImplementation implements BookService{
 
     }
 
-    @Override
-    public List<VWBook> getAllVWBooks(){
-        List<VWBook> books = new ArrayList<>();
-        bookRepository.getVWBooks().forEach(books::add);
-        return books;
-    }
 }
